@@ -26,9 +26,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # DRF
 REST_FRAMEWORK = {
+    'PAGE_SIZE': 5,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
         # 'rest_framework_xml.parsers.XMLParser',
@@ -41,8 +46,6 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'member.MyUser'
-
-
 
 # Application definition
 
